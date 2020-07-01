@@ -22,7 +22,7 @@
                 $post_date = $row['post_date'];
                 $post_image = $row['post_image'];
                 $post_content = $row['post_content'];
-                if(strlen($post_content)>500){
+                if (strlen($post_content) > 500) {
                     $post_content = substr($row['post_content'], 0, 250) . '...';
                 }
             ?>
