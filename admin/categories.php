@@ -3,6 +3,7 @@
 
     <?php include "includes/admin-navigation.php" ?>
 
+
     <div id="page-wrapper">
 
         <div class="container-fluid">
@@ -15,7 +16,9 @@
                         <small>Author name</small>
                     </h1>
                     <div class="col-xs-6">
-                        <form action="" method="post">
+                        <?php insert_categories(); ?>
+
+                        <form action="categories.php" method="post">
                             <div class="form-group">
                                 <label for="cat_title">Add Category</label>
                                 <input class="form-control" type="text" name="cat_title" id="cat_title">
@@ -24,25 +27,27 @@
                                 <button class="btn btn-primary" type="submit" name="submit" id="submit">Add Category</button>
                             </div>
                         </form>
+                        <?php
+                        if (isset($_GET['edit'])) {
+                            $cat_id = $_GET['edit'];
+                            include 'includes/update_categories.php';
+                        }
+                        ?>
                     </div><!-- Add Category Form -->
                     <div class="col-xs-6">
-                        <table class= "table table-bordered table-hover">
+                        <table class="table table-bordered table-hover">
                             <thread>
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Category Title</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thread>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Soccer</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Baseball</td>
-                                </tr>
+                                <?php
+                                    find_all_categories();
+                                    delete_category();
+                                ?>
                             </tbody>
                         </table>
                     </div>

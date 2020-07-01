@@ -12,7 +12,10 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <?php
-            $query = "SELECT * FROM posts";
+            if(isset($_GET['category'])){
+                $cat_id = $_GET['category'];
+            
+            $query = "SELECT * FROM posts WHERE post_category_id = $cat_id";
             $select_all_posts = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($select_all_posts)) {
@@ -47,7 +50,7 @@
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
-            <?php } ?>
+            <?php }} ?>
 
 
 

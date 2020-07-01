@@ -1,4 +1,15 @@
+<?php ob_start();?>
+<?php session_start();?>
 <?php include "../includes/db.php"?>
+<?php include "functions.php" ?>
+
+<?php 
+if(!isset($_SESSION['userRole'])){    
+    header("Location: ../index.php");    
+}else if($_SESSION['userRole'] !== 'admin'){
+    header("Location: ../index.php");   
+}   
+?>
 <!DOCTYPE html>
 <html lang="en">
 
