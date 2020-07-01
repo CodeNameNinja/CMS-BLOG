@@ -26,12 +26,18 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-fw fa-file-text fa-5x" ></i>
+                                    <i class="fa fa-fw fa-file-text fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>20</div>
+                                    <div class='huge'>
+                                        <?php
+                                        $query = "SELECT * FROM posts";
+                                        $select_all_posts = mysqli_query($connection, $query);
+                                        $post_count = mysqli_num_rows($select_all_posts);  
+                                        echo $post_count;                                      
+                                        ?></div>
 
-                                    <div>Entries</div>
+                                    <div>Posts</div>
                                 </div>
                             </div>
                         </div>
@@ -52,7 +58,12 @@
                                     <i class="fa fa-fw fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>20</div>
+                                    <div class='huge'>  <?php
+                                        $query = "SELECT * FROM comments";
+                                        $select_all_comments = mysqli_query($connection, $query);
+                                        $comment_count = mysqli_num_rows($select_all_comments);  
+                                        echo $comment_count;                                      
+                                        ?></div>
 
                                     <div>Comments</div>
                                 </div>
@@ -75,7 +86,12 @@
                                     <i class="fa fa-fw fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>20</div>
+                                    <div class='huge'>  <?php
+                                        $query = "SELECT * FROM users";
+                                        $select_all_users = mysqli_query($connection, $query);
+                                        $user_count = mysqli_num_rows($select_all_users);  
+                                        echo $user_count;                                      
+                                        ?></div>
 
                                     <div>Users</div>
                                 </div>
@@ -98,9 +114,14 @@
                                     <i class="fa fa-fw fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class='huge'>20</div>
+                                    <div class='huge'>  <?php
+                                        $query = "SELECT * FROM categories";
+                                        $select_all_categories = mysqli_query($connection, $query);
+                                        $categorie_count = mysqli_num_rows($select_all_categories);  
+                                        echo $categorie_count;                                      
+                                        ?></div>
 
-                                    <div>Teams</div>
+                                    <div>Categories</div>
                                 </div>
                             </div>
                         </div>
